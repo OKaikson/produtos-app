@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import api from "../../services/api";
 import { Container, Form, SubmitButton, Loading, SelectRows } from "./styles";
 import { FaSearch, FaArrowRotateRight } from "react-icons/fa";
@@ -43,8 +43,6 @@ export function ListProduto() {
     }, [produtos, pontoInicial, itensPorPagina]);
 
     function handleSearchName(e) {
-        e.preventDefault();
-
         const value = e.target.value;
         setSearchProduto(value.trim().toUpperCase());
     }
@@ -52,28 +50,38 @@ export function ListProduto() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (searchProduto === '') {
-            setListagem(produtos);
-        } else {
-            let text = zeroFormat(searchProduto, 6);
-
-            let data = produtos.find((item) => item.CODIGO === text);
-
-            if (!data) {
-                let obj = [];
-                produtos.map((item) => {
-                    if (!item.PRODUTO.indexOf(searchProduto)) {
-                        obj = [...obj, item];
+        async function pesquisaProduto() {         
+            try {
+                
+                if (searchProduto === '') {
+                    setListagem(produtos);
+                } else {
+                    let text = zeroFormat(searchProduto, 6);
+        
+                    let data = produtos.find((item) => item.CODIGO === text);
+        
+                    if (!data) {
+                        let obj = [];
+                        produtos.map((item) => {
+                            if (!item.PRODUTO.indexOf(searchProduto)) {
+                                obj = [...obj, item];
+                            }
+                        });
+        
+                        if (obj) {
+                            setListagem(obj);
+                        }
+                    } else {
+                        setListagem([data]);
                     }
-                });
-
-                if (obj) {
-                    setListagem(obj);
                 }
-            } else {
-                setListagem([data]);
-            }
+            } catch (error) {
+                console.log(error.text);                
+            }   
         }
+
+        pesquisaProduto();
+        
     }
 
     function handleChangePage(e, p) {        

@@ -8,9 +8,9 @@ export default function AppRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" Component={Main}/>
+                <Route path="/" Component={Visualizar}/>
                 <Route path="/visualizar" Component={Visualizar}/>
-                <Route path="/repositorio/:repositorio" Component={Repositorio}/>
+                {/* <Route path="/repositorio/:repositorio" Component={Repositorio}/> */}
             </Routes>
         </BrowserRouter>
     )
