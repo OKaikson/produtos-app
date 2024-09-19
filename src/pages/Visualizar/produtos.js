@@ -7,8 +7,6 @@ import { ShowProduct } from "./component/product";
 import { Pagination } from "@mui/material";
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
-import Stack from '@mui/material/Stack';
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 
 export function ListProduto() {

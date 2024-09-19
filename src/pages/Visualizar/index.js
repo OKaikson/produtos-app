@@ -14,7 +14,6 @@ export default function Visualizar() {
     const [listar, setListar] = useState('produtos');
 
     function handleRadioChange(e) {
-        console.log(e.target.value);
         setListar(e.target.value);
     }
 
