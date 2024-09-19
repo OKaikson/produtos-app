@@ -36,9 +36,7 @@ export const Product = styled.div.attrs(props => ({
     background: #fff;
     border-top: 1px solid #183163;
     padding: 8px;
-    gap: 5px;
     display: flex;
-    align-items: center;
     -webkit-animation: fadein 1.3; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1.3s; /* Firefox < 16 */
         -ms-animation: fadein 1.3s; /* Internet Explorer */
@@ -93,6 +91,19 @@ export const Product = styled.div.attrs(props => ({
         font-size: 12px;
         background: ${props => (props.status == 1) ? '#ffd7d7' : '#c8f9d0'};
         color: ${props => (props.status == 1) ? '#ff0000' : '#125718'};
+    }
+
+    .main{
+        .produto{
+            margin: 5px 0 5px 0;
+            font-size: 17px;
+        }
+    }
+
+    .fixR{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
     }
 `;
 

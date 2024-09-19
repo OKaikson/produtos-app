@@ -11,19 +11,19 @@ export function ShowProduct(props) {
 
     return (
         <Product status={props.values.SITUACAO}>
-            <div>
-                <img src="https://random.imagecdn.app/80/80" />
-            </div>
-            <div>
+            <div className="main">
+                <strong>{props.values.CODIGO}</strong>
                 <div className="produto">
-                    <span><strong>{props.values.CODIGO}</strong> - {props.values.PRODUTO}</span>
-                </div>
-                <h4 className="price">R${formatNumber(props.values.PRECOVENDA)}</h4>
-                <div className="info">
-                    <span>Estoque: {props.values.ESTOQUE}</span>
-                    <div className="status" >
-                        ●  {situacao[parseInt(props.values.SITUACAO)].label}
-                    </div>
+                    <span>
+                        {props.values.PRODUTO} - <strong className="price">R${formatNumber(props.values.PRECOVENDA)}</strong>
+                    </span>
+                </div>               
+                <span><strong>Tipo.......:</strong> {props.values.TIPO}</span> <br/>
+                <strong>Estoque:</strong><span className="estoque"> {props.values.ESTOQUE}</span>
+            </div>
+            <div className="fixR">
+                <div className="status" >
+                    ●  {situacao[parseInt(props.values.SITUACAO)].label}
                 </div>
             </div>
         </Product>
