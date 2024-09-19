@@ -19,7 +19,7 @@ export function ShowProduct(props) {
                     </span>
                 </div>               
                 <span><strong>Tipo.......:</strong> {props.values.TIPO}</span> <br/>
-                <strong>Estoque:</strong><span className="estoque"> {props.values.ESTOQUE}</span>
+                <strong>Estoque:</strong><span> {props.values.ESTOQUE}</span>
             </div>
             <div className="fixR">
                 <div className="status" >

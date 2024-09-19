@@ -30,7 +30,8 @@ export const Container = styled.div`
 `;
 
 export const Product = styled.div.attrs(props => ({
-    status: props.status
+    status: props.status,
+    valueestoque: props.valueestoque,
 }))`
     width: 100%;
     background: #fff;
@@ -91,12 +92,13 @@ export const Product = styled.div.attrs(props => ({
         font-size: 12px;
         background: ${props => (props.status == 1) ? '#ffd7d7' : '#c8f9d0'};
         color: ${props => (props.status == 1) ? '#ff0000' : '#125718'};
+        width: 50px;
     }
 
     .main{
         .produto{
             margin: 5px 0 5px 0;
-            font-size: 17px;
+            font-size: 18px;
         }
     }
 
